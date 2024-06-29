@@ -216,3 +216,519 @@ body {
     color: white;
     text-decoration: none;
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E4F92;
+    padding: 10px 20px;
+    color: white;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header .search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 30%;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.inbox {
+    display: flex;
+    height: calc(100vh - 50px);
+}
+
+.left-inbox {
+    width: 30%;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+}
+
+.right-inbox {
+    width: 70%;
+    padding: 20px;
+}
+
+.search-messages {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.message-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message-details {
+    flex: 1;
+}
+
+.message-name {
+    font-weight: bold;
+}
+
+.message-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.message-preview {
+    font-size: 14px;
+    color: #555;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.message-avatar-large {
+    width: 80px;
+    height: 80px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.message-header-details {
+    flex: 1;
+}
+
+.message-header-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.message-header-info {
+    font-size: 14px;
+    color: #555;
+}
+
+.message-body {
+    margin-bottom: 20px;
+}
+
+.message-today {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.message-content {
+    margin-bottom: 10px;
+}
+
+.message-from {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.message-text {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message-footer {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.message-button {
+    background-color: #1E4F92;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-button:hover {
+    background-color: #163A69;
+}
+
+.message-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E4F92;
+    padding: 10px 20px;
+    color: white;
+}
+
+.header .logo img {
+    height: 40px;
+}
+
+.header .search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 30%;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.second {
+    display: flex;
+    padding: 20px;
+}
+
+.left-profile {
+    width: 70%;
+    background: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.left-profile .profile-photo img {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.right-profile {
+    width: 70%;
+    padding: 20px;
+}
+
+.right-profile .above, .right-profile .below {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.right-profile .logo1 {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.right-profile .logo1 .logo img {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.activity, .experience, .skills, .interests {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.activity h2, .experience h2, .skills h2, .interests h2 {
+    margin: 0 0 10px 0;
+}
+
+.activity .post-buttons, .activity .post {
+    margin-top: 10px;
+}
+
+.activity .post-buttons button {
+    margin-right: 5px;
+}
+
+.experience .experience-item, .skills .skill-item, .interests .interest-item {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.experience .experience-item .company-logo img, .skills .skill-item .skill-logo img, .interests .interest-item .interest-logo img {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: block;
+}
+
+.activity .post {
+    display: flex;
+    align-items: center;
+}
+
+.activity .post .post-photo {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+.right-profile .new, .right-profile .second, .right-profile .third, .right-profile .fourth {
+    display: flex;
+    align-items: center;
+}
+
+.right-profile .above, .right-profile .below {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo1 {
+    display: flex;
+}
+.logo-part{
+    margin-left: 50px;
+    position: relative;
+    top: -30px;
+}
+.heaning1 h1{
+    size: 20px;
+}
+.para p{
+    size: 15px;
+}
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E4F92;
+    padding: 10px 20px;
+    color: white;
+}
+
+.header .logo img {
+    height: 40px;
+}
+
+.header .search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 30%;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.second {
+    display: flex;
+    padding: 20px;
+}
+
+.left-profile {
+    width: 30%;
+    background: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.left-profile .profile-photo img {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.right-profile {
+    width: 70%;
+    padding: 20px;
+}
+
+.right-profile .above, .right-profile .below {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.right-profile .logo1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.right-profile .logo1 .logo img {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.right-profile .logo1 .logo-part {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-profile .logo1 .heading1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.right-profile .logo1 .para {
+    font-size: 14px;
+    margin: 0;
+    color: #555;
+}
+
+.activity, .experience, .skills, .interests {
+    background: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.activity h2, .experience h2, .skills h2, .interests h2 {
+    margin-top: 0;
+}
+
+.activity p {
+    color: #888;
+}
+
+.activity .post-buttons button, .activity .post button, .experience button, .skills button, .interests button {
+    margin-right: 10px;
+    background: #1E4F92;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.activity .post {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.activity .post .post-photo img {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: block;
+    margin-right: 10px;
+}
+
+.activity .post .description {
+    font-size: 14px;
+    color: #555;
+}
+
+.experience .experience-item, .skills .skill-item, .interests .interest-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.experience .experience-item .company-logo img, .skills .skill-item .skill-logo img, .interests .interest-item .interest-logo img {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.experience .experience-item h3, .skills .skill-item h3, .interests .interest-item h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.experience .experience-item p, .skills .skill-item p, .interests .interest-item p {
+    font-size: 14px;
+    color: #555;
+}
+
+.button {
+    background-color: #1E4F92;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #163e70;
+}
