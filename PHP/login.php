@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $_SESSION["username"] = $username;
             $_SESSION["login_as"] = $table;
-            header("Location: ../HTML/dashboard.html"); 
+            header("Location: profile.php"); 
             exit;
         }
     }
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $_SESSION["username"] = $username;
             $_SESSION["login_as"] = $table;
-            header("Location: ../HTML/dashboard.html"); 
+            header("Location: ../HTML/Dashboard.html"); 
             exit;
         }
     }

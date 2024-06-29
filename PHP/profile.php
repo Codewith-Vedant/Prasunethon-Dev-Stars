@@ -1,10 +1,38 @@
+<?php
+// Include database connection file
+include 'db.php';
+
+// Start the session
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['username']) || !isset($_SESSION['login_as'])) {
+    header("Location: ../HTML/login.html");
+    exit();
+}
+
+// Get the username and login_as from the session
+$username = $_SESSION['username'];
+$table = $_SESSION['login_as'];
+
+// Prepare and execute the SQL query to fetch user data
+$stmt = $pdo->prepare("SELECT Name, email, Mobile_No, username, interests, skills, experience FROM users WHERE username = ?");
+$stmt->execute([$username]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    echo "User not found.";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="\Prasunethon-Dev-Stars\CSS\styles.css">
+    <link rel="stylesheet" href="..\CSS\styles.css">
 </head>
 <body>
     <div class="header">
@@ -13,10 +41,10 @@
         </div>
         <input type="text" class="search-bar" placeholder="Search">
         <nav>
-            <a href="#">HOME</a>
-            <a href="#">INBOX</a>
-            <a href="#">SETTINGS</a>
-            <a href="#">PROFILE</a>
+            <a href="../HTML/dashboard.html">HOME</a>
+            <a href="../HTML/inbox.html">INBOX</a>
+            <a href="edit_profile.php">SETTINGS</a>
+            <a href="profile.php"><u>PROFILE</u></a>
         </nav>
     </div>
     <div class="second">
@@ -24,10 +52,9 @@
             <div class="profile-photo">
                 <img src="" alt="Profile Photo">
             </div>
-            <h2>Name</h2>
-            <p>Description</p>
-            <p>Email</p>
-            <p>Phone number</p>
+            <h2><?= htmlspecialchars($user['Name']); ?></h2>
+            <p><?= htmlspecialchars($user['email']); ?></p>
+            <p><?= htmlspecialchars($user['Mobile_No']); ?></p>
         </div>
         <div class="right-profile">
             <div class="above">
@@ -37,8 +64,7 @@
                         <img src="" alt="New Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1">Name</h2>
-                        <p class="para">Description</p>
+                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
                     </div>
                 </div>
                 <p>Followers</p>
@@ -47,8 +73,8 @@
                         <img src="" alt="Second Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1">Name</h2>
-                        <p class="para">Description</p>
+                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
+                        
                     </div>
                 </div>
             </div>
@@ -59,8 +85,8 @@
                         <img src="" alt="Third Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1">Name</h2>
-                        <p class="para">Description</p>
+                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
+                        
                     </div>
                 </div>
                 <p>Followers</p>
@@ -69,8 +95,8 @@
                         <img src="" alt="Fourth Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1">Name</h2>
-                        <p class="para">Description</p>
+                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
+                        
                     </div>
                 </div>
             </div>
@@ -94,14 +120,11 @@
     </div>
     <div class="experience">
         <h2>Experience</h2>
-        <button>Add Experience</button>
         <div class="experience-item">
             <div class="company-logo">
                 <img src="" alt="Company Logo">
             </div>
-            <h3>Company Name</h3>
-            <p>Duration</p>
-            <p>Description</p>
+            <p><?= htmlspecialchars($user['experience']); ?></p>
         </div>
         <!-- Add more experience items as needed -->
     </div>
@@ -112,7 +135,7 @@
                 <img src="" alt="Skill Logo">
             </div>
             <h3>Skill Name</h3>
-            <p>Description</p>
+            <p><?= ":-    " . htmlspecialchars($user['skills']); ?></p>
         </div>
         <!-- Add more skill items as needed -->
     </div>
@@ -123,10 +146,10 @@
                 <img src="" alt="Interest Logo">
             </div>
             <h3>Interest Name</h3>
-            <p>Description</p>
+            <p><?= ":-    " . htmlspecialchars($user['interests']); ?></p>
         </div>
         <!-- Add more interest items as needed -->
     </div>
-    <script src="\Prasunethon-Dev-Stars\JS\script.js"></script>
+    <script src="..\JS\script.js"></script>
 </body>
 </html>
