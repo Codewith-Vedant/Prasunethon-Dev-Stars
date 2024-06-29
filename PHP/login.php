@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
 
+        if($table == "users"){
         $query = "SELECT * FROM `$table` WHERE username = :username AND pwd = :pwd";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':username', $username);
@@ -38,6 +39,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../HTML/dashboard.html"); 
             exit;
         }
+    }
+
+    if($table == "company"){
+        $query = "SELECT * FROM `$table` WHERE c_name = :username AND pwd = :pwd";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':pwd', $pwd);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+
+        if (empty($results)) {
+            echo "Username or Password is not correct.";
+            header("Location: ../HTML/login.html");
+            exit;
+        } else {
+            $_SESSION["username"] = $username;
+            $_SESSION["login_as"] = $table;
+            header("Location: ../HTML/dashboard.html"); 
+            exit;
+        }
+    }
     }
 } else {
     header("Location: ../HTML/login.html");
