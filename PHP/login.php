@@ -29,12 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION["username"] = $username;
             $_SESSION["login_as"] = $table;
-            header("Location: ../html/dashboard.html"); 
+            header("Location: ../HTML/dashboard.html"); 
             exit;
         }
     }
 } else {
-    header("Location: ../html/login.html");
+    header("Location: ../HTML/login.html");
     exit;
 }
 ?>
