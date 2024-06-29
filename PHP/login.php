@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $table = $_POST["login_as"];
     $username = $_POST["username"];
@@ -6,6 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($username) || empty($pwd)) {
         echo "Username or Password is not filled.";
+        header("Location: ../HTML/login.html");
+        exit;
     } else {
         require_once "db.php";
 
@@ -13,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $validTables = ['users', 'company']; 
         if (!in_array($table, $validTables)) {
             echo "Invalid table selected.";
+            header("Location: ../HTML/login.html");
             exit;
         }
 
@@ -25,8 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($results)) {
             echo "Username or Password is not correct.";
+            header("Location: ../HTML/login.html");
+            exit;
         } else {
-            session_start();
             $_SESSION["username"] = $username;
             $_SESSION["login_as"] = $table;
             header("Location: ../HTML/dashboard.html"); 
