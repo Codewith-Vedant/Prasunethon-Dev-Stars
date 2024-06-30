@@ -11,6 +11,7 @@
         <div class="logo">LOGO</div>
         <nav>
             <ul>
+                <div id="google_translate_element"></div>
                 <li><a href="./index.html">HOME</a></li>
                 <li><a href="./about.html">ABOUT</a></li>
                 <li><a href="./contactus.html">CONTACT US</a></li>
@@ -108,4 +109,11 @@
         </div>
     </footer>
 </body>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>

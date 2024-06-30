@@ -1,31 +1,3 @@
-<?php
-// Include database connection file
-include 'db.php';
-
-// Start the session
-session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION['username']) || !isset($_SESSION['login_as'])) {
-    header("Location: ../HTML/login.html");
-    exit();
-}
-
-// Get the username and login_as from the session
-$username = $_SESSION['username'];
-$table = $_SESSION['login_as'];
-
-// Prepare and execute the SQL query to fetch user data
-$stmt = $pdo->prepare("SELECT Name, email, Mobile_No, username, interests, skills, experience FROM users WHERE username = ?");
-$stmt->execute([$username]);
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if (!$user) {
-    echo "User not found.";
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,11 +13,11 @@ if (!$user) {
         </div>
         <input type="text" class="search-bar" placeholder="Search">
         <nav>
-        <div id="google_translate_element"></div>
-            <a href="../HTML/dashboard.html">HOME</a>
-            <a href="../HTML/inbox.html">INBOX</a>
-            <a href="edit_profile.php">SETTINGS</a>
-            <a href="profile.php"><u>PROFILE</u></a>
+            <div id="google_translate_element"></div>
+            <a href="dashboard.html">HOME</a>
+            <a href="inbox.html">INBOX</a>
+            <a href="../PHP/edit_profile.php">SETTINGS</a>
+            <a href="Profile.html">PROFILE</a>
         </nav>
     </div>
     <div class="second">
@@ -53,9 +25,10 @@ if (!$user) {
             <div class="profile-photo">
                 <img src="" alt="Profile Photo">
             </div>
-            <h2><?= htmlspecialchars($user['Name']); ?></h2>
-            <p><?= htmlspecialchars($user['email']); ?></p>
-            <p><?= htmlspecialchars($user['Mobile_No']); ?></p>
+            <h2>Name</h2>
+            <p>Description</p>
+            <p>Email</p>
+            <p>Phone number</p>
         </div>
         <div class="right-profile">
             <div class="above">
@@ -65,7 +38,8 @@ if (!$user) {
                         <img src="" alt="New Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
+                        <h2 class="heading1">Name</h2>
+                        <p class="para">Description</p>
                     </div>
                 </div>
                 <p>Followers</p>
@@ -74,8 +48,8 @@ if (!$user) {
                         <img src="" alt="Second Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
-                        
+                        <h2 class="heading1">Name</h2>
+                        <p class="para">Description</p>
                     </div>
                 </div>
             </div>
@@ -86,8 +60,8 @@ if (!$user) {
                         <img src="" alt="Third Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
-                        
+                        <h2 class="heading1">Name</h2>
+                        <p class="para">Description</p>
                     </div>
                 </div>
                 <p>Followers</p>
@@ -96,8 +70,8 @@ if (!$user) {
                         <img src="" alt="Fourth Logo">
                     </div>
                     <div class="logo-part">
-                        <h2 class="heading1"><?= htmlspecialchars($user['Name']); ?></h2>
-                        
+                        <h2 class="heading1">Name</h2>
+                        <p class="para">Description</p>
                     </div>
                 </div>
             </div>
@@ -121,11 +95,14 @@ if (!$user) {
     </div>
     <div class="experience">
         <h2>Experience</h2>
+        <button>Add Experience</button>
         <div class="experience-item">
             <div class="company-logo">
                 <img src="" alt="Company Logo">
             </div>
-            <p><?= htmlspecialchars($user['experience']); ?></p>
+            <h3>Company Name</h3>
+            <p>Duration</p>
+            <p>Description</p>
         </div>
         <!-- Add more experience items as needed -->
     </div>
@@ -136,7 +113,7 @@ if (!$user) {
                 <img src="" alt="Skill Logo">
             </div>
             <h3>Skill Name</h3>
-            <p><?= ":-    " . htmlspecialchars($user['skills']); ?></p>
+            <p>Description</p>
         </div>
         <!-- Add more skill items as needed -->
     </div>
@@ -147,10 +124,17 @@ if (!$user) {
                 <img src="" alt="Interest Logo">
             </div>
             <h3>Interest Name</h3>
-            <p><?= ":-    " . htmlspecialchars($user['interests']); ?></p>
+            <p>Description</p>
         </div>
         <!-- Add more interest items as needed -->
     </div>
-    <script src="..\JS\script.js"></script>
+    <script src="\Prasunethon-Dev-Stars\JS\script.js"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+        </script>
+        
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
